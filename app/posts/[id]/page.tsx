@@ -1,7 +1,9 @@
 import LikeButton from "../../../components/LikeButton";
 
 async function getPost(id: string) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    cache: "no-store", // SSR 100%
+  });
   return res.json();
 }
 

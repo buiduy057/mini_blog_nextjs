@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "Mini Blog",
@@ -17,16 +18,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main className="flex-1 container mx-auto p-4">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <Providers>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <main className="flex-1 container mx-auto p-4">{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
