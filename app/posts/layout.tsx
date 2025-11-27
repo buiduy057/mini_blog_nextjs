@@ -1,3 +1,4 @@
+import SiderBar from "@/components/SiderBar";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -13,17 +14,7 @@ export default function PostLayout({
 }>) {
   return (
     <div className="flex gap-4">
-      <aside className="w-1/4 p-4 border-r">
-        <h2 className="font-bold mb-2">Sidebar</h2>
-        <ul>
-          <li>
-            <Link href="/posts">All Posts</Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-        </ul>
-      </aside>
+      <SiderBar />
       <section className="flex-1 p-4">{children}</section>
     </div>
   );
