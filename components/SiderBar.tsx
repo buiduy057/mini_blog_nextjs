@@ -1,6 +1,7 @@
+"use client";
 import Link from "next/link";
 import React from "react";
-import { useSession, signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const SiderBar = () => {
   const { data: session } = useSession();
@@ -21,7 +22,15 @@ const SiderBar = () => {
         </li>
       </ul>
       <span>{session.user?.name}</span>
-      <button onClick={() => signOut()}>Sign out</button>
+      <button
+        onClick={() =>
+          signOut({
+            redirectTo: "/",
+          })
+        }
+      >
+        Sign out
+      </button>
     </aside>
   );
 };

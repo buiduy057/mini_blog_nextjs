@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true, // bật Strict Mode của React
-  compiler: {
-    styledComponents: true, // nếu dùng styled-components
+  experimental: {
+    serverComponentsExternalPackages: ["@prisma/client", "prisma"],
+  },
+
+  webpack: (config) => {
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+    };
+    return config;
   },
   // các option khác nếu cần
 };
