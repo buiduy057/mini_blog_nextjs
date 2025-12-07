@@ -43,6 +43,8 @@ const page = ({ params }: { params: Promise<{ id: string }> }) => {
     updateMutation.mutate({ name, price });
   };
 
+  const handleAddCart = () => {};
+
   return (
     <div style={{ padding: 20 }}>
       <h1>Product Detail</h1>
@@ -56,6 +58,8 @@ const page = ({ params }: { params: Promise<{ id: string }> }) => {
       <p>
         <b>Price:</b> {product.price}
       </p>
+
+      <Button onClick={handleAddCart}>Add Cart</Button>
 
       <hr />
 

@@ -15,4 +15,14 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     strategy: "database",
     maxAge: 60 * 60, // 1h = 3600s
   },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      console.log("callback");
+      // Sau login → luôn về trang home
+      return baseUrl + "/products";
+    },
+  },
+  pages: {
+    signIn: "/signin",
+  },
 });

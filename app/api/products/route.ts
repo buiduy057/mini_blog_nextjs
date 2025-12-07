@@ -46,7 +46,6 @@ export async function PUT(req: NextRequest) {
 export async function DELETE(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
-  console.log("id", id);
   if (!id)
     return NextResponse.json({ error: "ID is required" }, { status: 400 });
   await prisma.product.delete({ where: { id } });

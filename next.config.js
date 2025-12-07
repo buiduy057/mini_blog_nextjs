@@ -4,6 +4,15 @@ const nextConfig = {
     serverComponentsExternalPackages: ["@prisma/client", "prisma"],
   },
 
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+    ],
+  },
+
   webpack: (config) => {
     config.experiments = {
       ...config.experiments,

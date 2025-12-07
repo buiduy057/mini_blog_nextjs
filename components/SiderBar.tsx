@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import { signOut, useSession } from "next-auth/react";
+import MiniCart from "./MiniCart";
 
 const SiderBar = () => {
   const { data: session } = useSession();
@@ -22,6 +23,7 @@ const SiderBar = () => {
         </li>
       </ul>
       <span>{session.user?.name}</span>
+      <MiniCart />
       <button
         onClick={() =>
           signOut({
